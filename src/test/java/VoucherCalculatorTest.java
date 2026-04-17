@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Test;
 public class VoucherCalculatorTest {
 
     @Test
-    void testVoucherCannotExceedTotal() {
-        int total = 100;
-        int discount = 200;
+    void testVoucherExceedsTotal_shouldNotReturnNegative() {
+        VoucherCalculator calculator = new VoucherCalculator();
 
-        int result = VoucherCalculator.applyDiscount(total, discount);
+        double result = calculator.calculateFinalPrice(100, 10, 200);
 
-        assertEquals(0, result); // expected đúng
+        // Kỳ vọng đúng: không được âm → phải = 0
+        assertEquals(0, result);
     }
 }
